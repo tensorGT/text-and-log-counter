@@ -15,3 +15,12 @@ def read_lines_safe(file_path: Path) -> List[str]:
     if not file_path.exists():
         raise FileNotFoundError("cant find file: %s" % file_path)
     try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.readlines()
+    except UnicodeDecodeError:
+        # fallback if file has weird latin1 chars
+        with open(file_path, "r", encoding="latin-1", errors="replace") as f:
+            return f.readlines()
+
+
+def analyze_text(lines: List[str], top_n: int) -> Dict:
