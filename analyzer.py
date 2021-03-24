@@ -24,3 +24,11 @@ def read_lines_safe(file_path: Path) -> List[str]:
 
 
 def analyze_text(lines: List[str], top_n: int) -> Dict:
+    words: Counter = Counter()
+    for line in lines:
+        tokens = WORD_PATTERN.findall(line.lower())
+        words.update(tokens)
+
+    return {
+        "mode": "text",
+        "total_lines": len(lines),
