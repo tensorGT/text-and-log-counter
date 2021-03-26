@@ -32,3 +32,12 @@ def analyze_text(lines: List[str], top_n: int) -> Dict:
     return {
         "mode": "text",
         "total_lines": len(lines),
+        "total_words": sum(words.values()),
+        "unique_words": len(words),
+        "top_words": words.most_common(top_n),
+    }
+
+
+def analyze_logs(lines: List[str], top_n: int) -> Dict:
+    ips: Counter = Counter()
+    statuses: Counter = Counter()
