@@ -41,3 +41,12 @@ def analyze_text(lines: List[str], top_n: int) -> Dict:
 def analyze_logs(lines: List[str], top_n: int) -> Dict:
     ips: Counter = Counter()
     statuses: Counter = Counter()
+    paths: Counter = Counter()
+    matched = 0
+
+    for line in lines:
+        m = LOG_PATTERN.search(line)
+        if m:
+            matched += 1
+            ips[m.group("ip")] += 1
+            statuses[m.group("status")] += 1
