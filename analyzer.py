@@ -50,3 +50,11 @@ def analyze_logs(lines: List[str], top_n: int) -> Dict:
             matched += 1
             ips[m.group("ip")] += 1
             statuses[m.group("status")] += 1
+            paths[m.group("path")] += 1
+
+    return {
+        "mode": "log",
+        "total_lines": len(lines),
+        "matched_log_lines": matched,
+        "top_ips": ips.most_common(top_n),
+        "status_codes": statuses.most_common(top_n),
