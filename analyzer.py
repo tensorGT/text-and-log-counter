@@ -58,3 +58,12 @@ def analyze_logs(lines: List[str], top_n: int) -> Dict:
         "matched_log_lines": matched,
         "top_ips": ips.most_common(top_n),
         "status_codes": statuses.most_common(top_n),
+        "top_paths": paths.most_common(top_n),
+    }
+
+
+def print_report(result: Dict) -> None:
+    print("=== Report (%s) ===" % result["mode"])
+    if result["mode"] == "text":
+        print("Lines:", result["total_lines"], "| Words:", result["total_words"], "| Unique:", result["unique_words"])
+        print("\nTop words:")
