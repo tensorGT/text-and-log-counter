@@ -67,3 +67,12 @@ def print_report(result: Dict) -> None:
     if result["mode"] == "text":
         print("Lines:", result["total_lines"], "| Words:", result["total_words"], "| Unique:", result["unique_words"])
         print("\nTop words:")
+        for word, cnt in result["top_words"]:
+            print("  %-15s %d" % (word, cnt))
+    else:
+        print("Lines:", result["total_lines"], "| Matched:", result["matched_log_lines"])
+        print("\nTop IPs:")
+        for ip, cnt in result["top_ips"]:
+            print("  %-18s %d" % (ip, cnt))
+        print("\nStatus codes:")
+        for code, cnt in result["status_codes"]:

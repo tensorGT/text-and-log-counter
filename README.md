@@ -7,3 +7,4 @@ learning how to use `collections.Counter` and regex in python for count words in
 - `log` mode: parse ip address, request path, and http status code from access logs
 - handle missing file and weird encoding without crashing
 - optional `--json-out` save report
+
