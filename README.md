@@ -8,3 +8,4 @@ learning how to use `collections.Counter` and regex in python for count words in
 - handle missing file and weird encoding without crashing
 - optional `--json-out` save report
 
+## usage

@@ -76,3 +76,11 @@ def print_report(result: Dict) -> None:
             print("  %-18s %d" % (ip, cnt))
         print("\nStatus codes:")
         for code, cnt in result["status_codes"]:
+            print("  %-8s %d" % (code, cnt))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="count words or ip/status from text and log files")
+    parser.add_argument("file", help="input file path")
+    parser.add_argument("--mode", choices=["text", "log"], default="text")
+    parser.add_argument("--top", type=int, default=10, help="how many top items to show")
