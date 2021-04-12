@@ -9,3 +9,4 @@ learning how to use `collections.Counter` and regex in python for count words in
 - optional `--json-out` save report
 
 ## usage
+```bash

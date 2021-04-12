@@ -84,3 +84,12 @@ def main() -> None:
     parser.add_argument("file", help="input file path")
     parser.add_argument("--mode", choices=["text", "log"], default="text")
     parser.add_argument("--top", type=int, default=10, help="how many top items to show")
+    parser.add_argument("--json-out", default=None, help="optional json output path")
+    args = parser.parse_args()
+
+    try:
+        lines = read_lines_safe(Path(args.file))
+    except FileNotFoundError as err:
+        print("error:", err)
+        return
+    except OSError as err:
