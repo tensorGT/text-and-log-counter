@@ -93,3 +93,12 @@ def main() -> None:
         print("error:", err)
         return
     except OSError as err:
+        print("could not read file:", err)
+        return
+
+    if args.mode == "log":
+        result = analyze_logs(lines, args.top)
+    else:
+        result = analyze_text(lines, args.top)
+
+    print_report(result)

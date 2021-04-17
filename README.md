@@ -10,3 +10,4 @@ learning how to use `collections.Counter` and regex in python for count words in
 
 ## usage
 ```bash
+python analyzer.py notes.txt --mode text --top 10
