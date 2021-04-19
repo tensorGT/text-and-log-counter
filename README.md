@@ -11,3 +11,5 @@ learning how to use `collections.Counter` and regex in python for count words in
 ## usage
 ```bash
 python analyzer.py notes.txt --mode text --top 10
+python analyzer.py access.log --mode log --top 5 --json-out report.json
+```

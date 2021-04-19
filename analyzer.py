@@ -102,3 +102,12 @@ def main() -> None:
         result = analyze_text(lines, args.top)
 
     print_report(result)
+
+    if args.json_out:
+        with open(args.json_out, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=2)
+        print("\nsaved json to", args.json_out)
+
+
+if __name__ == "__main__":
+    main()
